@@ -13,6 +13,7 @@
 using namespace std;
 
 #include "sources/Team.hpp" //no need for other includes
+#include "sources/Team2.hpp"
 
 using namespace ariel;
 

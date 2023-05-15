@@ -66,18 +66,18 @@ namespace ariel
 
     void SmartTeam::add(Character *fighter)
     {
-        if (getTeam().size() == 10)
+        if (getTeam()->size() == 10)
         {
             throw runtime_error("Team is full");
         }
         if (fighter->getType() == COWBOY)
         {
-            getTeam().push_front(fighter);
+            getTeam()->push_front(fighter);
             fighter->setInTeam(true);
         }
         else if (fighter->getType() == NINJA)
         {
-            getTeam().push_back(fighter);
+            getTeam()->push_back(fighter);
             fighter->setInTeam(true);
         }
     }
@@ -131,12 +131,10 @@ namespace ariel
     int Team::stillAlive()
     {
         int counter = 0;
-        cout << team.size() << endl;
         for (list<Character *>::iterator it = team.begin(); it != team.end(); it++)
         {
             if ((*it)->isAlive())
             {
-                cout << (*it)->getName() << endl;
                 counter++;
             }
         }
@@ -220,9 +218,9 @@ namespace ariel
         return leader;
     }
 
-    list<Character *> Team::getTeam() const
+    list<Character *>* Team::getTeam() const
     {
-        return team;
+        return (list<Character *> *)&team;
     }
 
 }

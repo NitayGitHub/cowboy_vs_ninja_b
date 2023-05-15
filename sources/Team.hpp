@@ -10,7 +10,6 @@
 #include "YoungNinja.hpp"
 #include "OldNinja.hpp"
 #include "TrainedNinja.hpp"
-#include "Team2.hpp"
 
 using namespace std;
 
@@ -44,7 +43,7 @@ namespace ariel
         bool replaceLeader();
         Character *closestToLeader(Team *enemy);
         Character* getLeader() const;
-        list<Character *> getTeam() const;
+        list<Character *>* getTeam() const;
     };
 
     class SmartTeam : public Team

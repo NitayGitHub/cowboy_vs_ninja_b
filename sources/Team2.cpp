@@ -10,11 +10,11 @@ namespace ariel
 
     void Team2::add(Character *fighter)
     {
-        if (getTeam().size() == 10)
+        if (getTeam()->size() == 10)
         {
             throw runtime_error("Team is full");
         }
-        getTeam().push_back(fighter);
+        getTeam()->push_back(fighter);
         fighter->setInTeam(true);
     }
 
