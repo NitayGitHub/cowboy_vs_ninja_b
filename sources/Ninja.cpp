@@ -8,13 +8,7 @@ namespace ariel
     Ninja::Ninja(string name, Point location, int speed, int HealthPoints) : Character(name, location, HealthPoints, NINJA), speed(speed) {}
 
     Ninja::~Ninja() {}
-
-    YoungNinja::YoungNinja(string name, Point location) : Ninja(name, location, 14, 100) {}
-
-    TrainedNinja::TrainedNinja(string name, Point location) : Ninja(name, location, 12, 120) {}
-
-    OldNinja::OldNinja(string name, Point location) : Ninja(name, location, 8, 150) {}
-
+    
     // Functions
     void Ninja::move(Character* other)
     {

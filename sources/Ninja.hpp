@@ -28,25 +28,6 @@ namespace ariel
         int getSpeed() const;
         string print() const override;
     };
-
-    // Ninja Types
-    class YoungNinja : public Ninja
-    {
-    public:
-        YoungNinja(string name, Point location);
-    };
-
-    class TrainedNinja : public Ninja
-    {
-    public:
-        TrainedNinja(string name, Point location);
-    };
-
-    class OldNinja : public Ninja
-    {
-    public:
-        OldNinja(string name, Point location);
-    };
 }
 
 #endif
