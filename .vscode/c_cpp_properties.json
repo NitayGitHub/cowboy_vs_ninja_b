@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "defines": [],
+            "intelliSenseMode": "linux-clang-x64",
+            "cppStandard": "c++14",
+            "cStandard": "c99"
+        }
+    ],
+    "version": 4
+}
