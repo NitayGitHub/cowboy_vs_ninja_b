@@ -3,9 +3,13 @@
         {
             "name": "Linux",
             "defines": [],
-            "intelliSenseMode": "linux-clang-x64",
+            "intelliSenseMode": "",
             "cppStandard": "c++14",
-            "cStandard": "c99"
+            "cStandard": "c99",
+            "compilerPath": "/usr/bin/gcc",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ]
         }
     ],
     "version": 4
