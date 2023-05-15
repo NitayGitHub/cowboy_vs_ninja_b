@@ -31,8 +31,6 @@ namespace ariel
         }
     }
 
-    Team2::Team2(Character *leader) : Team(leader) {}
-
     SmartTeam::SmartTeam(Character *leader) : Team(leader) {}
 
     // Destructors
@@ -64,16 +62,6 @@ namespace ariel
             team.push_back(fighter);
             fighter->setInTeam(true);
         }
-    }
-
-    void Team2::add(Character *fighter)
-    {
-        if (getTeam().size() == 10)
-        {
-            throw runtime_error("Team is full");
-        }
-        getTeam().push_back(fighter);
-        fighter->setInTeam(true);
     }
 
     void SmartTeam::add(Character *fighter)
@@ -143,10 +131,12 @@ namespace ariel
     int Team::stillAlive()
     {
         int counter = 0;
+        cout << team.size() << endl;
         for (list<Character *>::iterator it = team.begin(); it != team.end(); it++)
         {
             if ((*it)->isAlive())
             {
+                cout << (*it)->getName() << endl;
                 counter++;
             }
         }

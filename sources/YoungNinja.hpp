@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include "Character.hpp"
+#include "Ninja.hpp"
 using namespace std;
 
 namespace ariel

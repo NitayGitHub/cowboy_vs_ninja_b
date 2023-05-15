@@ -7,6 +7,10 @@
 #include "Character.hpp"
 #include "Ninja.hpp"
 #include "Cowboy.hpp"
+#include "YoungNinja.hpp"
+#include "OldNinja.hpp"
+#include "TrainedNinja.hpp"
+#include "Team2.hpp"
 
 using namespace std;
 
@@ -41,13 +45,6 @@ namespace ariel
         Character *closestToLeader(Team *enemy);
         Character* getLeader() const;
         list<Character *> getTeam() const;
-    };
-
-    class Team2 : public Team
-    {
-    public:
-        Team2(Character *leader);
-        void add (Character *fighter) override;
     };
 
     class SmartTeam : public Team

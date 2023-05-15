@@ -24,6 +24,10 @@ namespace ariel
 
     Point Point::moveTowards(const Point &source, const Point &dest, double dist)
     {
+        if (dist < 0)
+        {
+            throw invalid_argument("Can't move by negative distance");
+        }
         double maxDistance = source.distance(dest);
         if (maxDistance < dist)
         {

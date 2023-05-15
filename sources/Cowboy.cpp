@@ -12,7 +12,7 @@ namespace ariel
     // Functions
     void Cowboy::shoot(Character *other)
     {
-        if (!hasBullets())
+        if (!hasboolets())
         {
             cout << "No bullets; reload first" << endl;
             return;
@@ -29,7 +29,7 @@ namespace ariel
         this->bullets--;
     }
 
-    bool Cowboy::hasBullets() const
+    bool Cowboy::hasboolets() const
     {
         return bullets > 0;
     }
@@ -69,7 +69,7 @@ namespace ariel
             throw runtime_error("Target Character is dead");
             return;
         }
-        if (hasBullets()){
+        if (hasboolets()){
             reload();
         }
         shoot(other);

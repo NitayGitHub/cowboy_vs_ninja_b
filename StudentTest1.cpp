@@ -154,6 +154,7 @@ TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive
 
         Team team1{captain1};
         Team2 team2{captain2};
+        cout << "I'm here" << endl;
 
         // Every addition should rise the value returned by stillAlive()
         for (int i = 0; i < MAX_TEAM - 1; i++) {

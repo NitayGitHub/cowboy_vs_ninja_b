@@ -20,7 +20,7 @@ namespace ariel
 
         // Functions
         void shoot(Character* other);
-        bool hasBullets() const;
+        bool hasboolets() const;
         void reload();
         string print() const override;
         void attack(Character* other) override;
