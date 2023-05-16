@@ -36,7 +36,7 @@ namespace ariel
         }
         if (getLocation().distance(other->getLocation()) > 1)
         {
-            cout << "Target " << other->getName() << " is too far away from " << getName() << endl;
+            //cout << "Target " << other->getName() << " is too far away from " << getName() << endl;
             return;
         }
         other->hit(40);
