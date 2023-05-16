@@ -13,6 +13,8 @@ namespace ariel
     {
     public:
         YoungNinja(string name, Point location);
+
+        ~YoungNinja() override;
     };
     
 }

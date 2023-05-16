@@ -9,7 +9,7 @@ namespace ariel
     Team::Team(Character *leader) : leader(leader)
     {
         if(leader->isInTeam()){
-            throw invalid_argument("Character is already in a team");
+            throw runtime_error("Character is already in a team");
         }
         team.push_back(leader);
         leader->setInTeam(true);
@@ -17,7 +17,7 @@ namespace ariel
 
     Team::Team(Team &other) : leader(other.leader)
     {
-        for (list<Character *>::iterator it = other.team.begin(); it != other.team.end(); it++)
+        for (auto it = other.team.begin(); it != other.team.end(); it++)
         {
             team.push_back(*it);
         }
@@ -25,7 +25,7 @@ namespace ariel
 
     Team::Team(Team &&other) : leader(other.leader)
     {
-        for (list<Character *>::iterator it = other.team.begin(); it != other.team.end(); it++)
+        for (auto it = other.team.begin(); it != other.team.end(); it++)
         {
             team.push_back(*it);
         }
@@ -91,7 +91,7 @@ namespace ariel
     {
         int minDistance = -1;
         int newLeaderIndex = -1;
-        for (list<Character *>::iterator it = team.begin(); it != team.end(); it++)
+        for (auto it = team.begin(); it != team.end(); it++)
         {
             if (!((*it)->isAlive()))
             {
@@ -113,7 +113,7 @@ namespace ariel
         {
             return false;
         }
-        list<Character *>::iterator it = team.begin();
+        auto it = team.begin();
         advance(it, newLeaderIndex);
         leader = *it;
         return true;
@@ -121,7 +121,7 @@ namespace ariel
 
     void Team::print()
     {
-        for (list<Character *>::iterator it = team.begin(); it != team.end(); it++)
+        for (auto it = team.begin(); it != team.end(); it++)
         {
             cout << (*it)->print() << endl;
         }
@@ -131,7 +131,7 @@ namespace ariel
     int Team::stillAlive()
     {
         int counter = 0;
-        for (list<Character *>::iterator it = team.begin(); it != team.end(); it++)
+        for (auto it = team.begin(); it != team.end(); it++)
         {
             if ((*it)->isAlive())
             {
@@ -145,7 +145,7 @@ namespace ariel
     {
         int minDistance = -1;
         Character *closest = nullptr;
-        for (list<Character *>::iterator it = enemy->team.begin(); it != enemy->team.end(); it++)
+        for (auto it = enemy->team.begin(); it != enemy->team.end(); it++)
         {
             if (!((*it)->isAlive()))
             {
@@ -168,6 +168,9 @@ namespace ariel
 
     void Team::attack(Team *other)
     {
+        if(!other){
+            throw invalid_argument("Can't attack a nullptr");
+        }
         if (!isLeaderAlive())
         {
             if (!replaceLeader())
@@ -175,10 +178,6 @@ namespace ariel
                 cout << "The team has lost" << endl;
                 return;
             }
-        }
-        if (!stillAlive())
-        {
-            throw runtime_error("Can't attack when your team is dead");
         }
         if (!other->stillAlive())
         {
@@ -191,22 +190,22 @@ namespace ariel
             cout << "closest is nullptr" << endl;
         }
         
-        for (list<Character *>::iterator it = team.begin(); it != team.end(); it++)
+        for (auto it = team.begin(); it != team.end(); it++)
         {
             if (!((*it)->isAlive()))
-            {
-                
+            {   
                 continue;
             }
-            if (!closest->isAlive() && !other->stillAlive())
+            if (closest->isAlive())
+            {
+                (*it)->attack(closest);
+                continue;
+            }
+            if(!other->stillAlive())
             {
                 return;
             }
-            else if (!closest->isAlive())
-            {
-                closest = closestToLeader(other);
-            }
-            (*it)->attack(closest);
+            closest = closestToLeader(other);
             
         }
     }

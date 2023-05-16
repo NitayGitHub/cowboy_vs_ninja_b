@@ -14,6 +14,9 @@ namespace ariel
         {
             throw runtime_error("Team is full");
         }
+        if(fighter->isInTeam()){
+            throw runtime_error("Character is already in a team");
+        }
         getTeam()->push_back(fighter);
         fighter->setInTeam(true);
     }

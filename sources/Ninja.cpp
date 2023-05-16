@@ -23,6 +23,9 @@ namespace ariel
 
     void Ninja::slash(Character* other)
     {
+        if(other == this){
+            throw runtime_error("Can't slash yourself");
+        }
         if (!isAlive())
         {
             throw runtime_error("Can't attack when you're dead");

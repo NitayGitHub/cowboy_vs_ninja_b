@@ -8,4 +8,6 @@ namespace ariel
 
     OldNinja::OldNinja(string name, Point location) : Ninja(name, location, 8, 150) {}
 
+    OldNinja::~OldNinja() {}
+
 }

@@ -12,6 +12,9 @@ namespace ariel
     // Functions
     void Cowboy::shoot(Character *other)
     {
+        if(other == this){
+            throw runtime_error("Can't shoot yourself");
+        }
         if (!hasboolets())
         {
             cout << "No bullets; reload first" << endl;

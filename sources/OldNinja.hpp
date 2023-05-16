@@ -13,6 +13,7 @@ namespace ariel
     {
     public:
         OldNinja(string name, Point location);
+        ~OldNinja() override;
     };
     
 }

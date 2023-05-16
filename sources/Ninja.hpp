@@ -17,7 +17,7 @@ namespace ariel
     public:
         // Constructors
         Ninja(string name, Point location, int speed, int HealthPoints);
-        ~Ninja() override;
+        virtual ~Ninja() override;
 
         // Functions
         virtual void move(Character* other);

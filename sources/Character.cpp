@@ -25,6 +25,10 @@ namespace ariel
 
     void Character::hit(int damage)
     {
+        if(damage < 0)
+        {
+            throw invalid_argument("Damage can't be negative");
+        }
         if (!isAlive())
         {
             throw runtime_error("Character is dead");

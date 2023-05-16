@@ -12,6 +12,7 @@ namespace ariel
     {
     public:
         TrainedNinja(string name, Point location);
+        ~TrainedNinja() override;
     };
     
 }

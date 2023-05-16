@@ -6,4 +6,6 @@ using namespace std;
 namespace ariel
 {
     YoungNinja::YoungNinja(string name, Point location) : Ninja(name, location, 14, 100) {}
+
+    YoungNinja::~YoungNinja() {}
 }
