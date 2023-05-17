@@ -17,7 +17,7 @@ namespace ariel
         }
         if (!hasboolets())
         {
-            cout << "No bullets; reload first" << endl;
+            reload();
             return;
         }
         if (!isAlive())
@@ -63,18 +63,6 @@ namespace ariel
 
     void Cowboy::attack(Character *other)
     {
-        if (!isAlive())
-        {
-            throw runtime_error("Can't attack when you're dead");
-            return;
-        }
-        if(!other->isAlive()){
-            throw runtime_error("Target Character is dead");
-            return;
-        }
-        if (hasboolets()){
-            reload();
-        }
         shoot(other);
     }
 }
