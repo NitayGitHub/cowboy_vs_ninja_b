@@ -8,6 +8,7 @@ using namespace std;
 
 namespace ariel
 {
+    
     // Ninja class
     class Ninja : public Character
     {
