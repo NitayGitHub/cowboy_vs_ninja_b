@@ -42,7 +42,7 @@ namespace ariel
         virtual Character *closestToLeader(Team *enemy);
         Character* getLeader() const;
         list<Character *>& getTeam();
-        int canAtkTeam(Team *other);
+        int canAtkTeam(Team *other, bool throwIfEnemyDead);
     };
 
 }

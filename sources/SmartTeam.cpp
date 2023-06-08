@@ -43,7 +43,7 @@ namespace ariel
 
     void SmartTeam::efficientAttack(list<Character *> &attackTeam, Team *other)
     {
-        if (!canAtkTeam(other))
+        if (!canAtkTeam(other, false))
         {
             return;
         }
@@ -94,6 +94,13 @@ namespace ariel
             }
         }
 
+        cout << "Possible attacks: ";
+        for (auto it = attacks.begin(); it != attacks.end(); it++)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+
         // find the closest combination of attacks to the target's health
         list<int> closestCombo = findClosestCombination(attacks, closest->getHP());
 
@@ -104,6 +111,7 @@ namespace ariel
             cout << *it << " ";
         }
         cout << endl;
+        
 
         // attack with combination attackers
         for (auto it = closestCombo.begin(); it != closestCombo.end(); it++)

@@ -132,7 +132,6 @@ namespace ariel
                 minDistance = distance;
                 closest = *it;
             }
-            
         }
 
         return closest;
@@ -140,7 +139,7 @@ namespace ariel
 
     void Team::attack(Team *other)
     {
-        if (!canAtkTeam(other))
+        if (!canAtkTeam(other, true))
         {
             return;
         }
@@ -169,7 +168,7 @@ namespace ariel
         }
     }
 
-    int Team::canAtkTeam(Team *other)
+    int Team::canAtkTeam(Team *other, bool throwIfEnemyDead)
     {
         if (!other)
         {
@@ -185,7 +184,14 @@ namespace ariel
         }
         if (!other->stillAlive())
         {
-            throw runtime_error("Can't attack a dead team");
+            if (throwIfEnemyDead)
+            {
+                throw runtime_error("Can't attack a dead team");
+            }
+            else
+            {
+                return 0;
+            }
         }
         return 1;
     }
